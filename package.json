@@ -6,22 +6,31 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3",
+    "@eslint/js": "^8.2",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "typescript-eslint": "^7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
+    "eslint": "^8.2",
+    "eslint-config-next": "13",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
+    "prettier": "^1.19.1",
+    "prettier-airbnb-config": "^1.0.0",
     "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
+    "typescript": "5.3.3"
   }
 }
