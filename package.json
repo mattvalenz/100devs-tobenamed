@@ -28,6 +28,8 @@
     "eslint-config-next": "13",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
+    "prettier": "^1.19.1",
+    "prettier-airbnb-config": "^1.0.0",
     "tailwindcss": "^4",
     "typescript": "5.3.3"
   }
