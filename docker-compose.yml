@@ -9,7 +9,19 @@ services:
     volumes:
       - mongodb_data:/data/db
 
+  nextjs:
+    image: node:22
+    working_dir: /app
+    container_name: nextjs
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+
 volumes:
   mongodb_data:
-
-
