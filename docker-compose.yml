@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  mongodb:
+  mongo:
     image: mongo:latest #Pulls the latest mongo image from docker hub
     container_name: mongodb
     ports:
