@@ -9,6 +9,16 @@ services:
     volumes:
       - mongodb_data:/data/db
 
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_PORT=27017
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+
   nextjs:
     image: node:22
     working_dir: /app
