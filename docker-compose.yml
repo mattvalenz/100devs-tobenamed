@@ -1,15 +1,41 @@
 version: '3.8'
 
 services:
-  mongodb:
+  mongo:
     image: mongo:latest #Pulls the latest mongo image from docker hub
     container_name: mongodb
     ports:
       - "27017:27017" #The port on which mongoDB will run is 27017
     volumes:
       - mongodb_data:/data/db
+    env_file:
+      - .env
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_PORT=27017
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+
+  nextjs:
+    image: node:22
+    working_dir: /app
+    container_name: nextjs
+    volumes:
+      - .:/app
+    ports:
+      - '3000:3000'
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - mongo
+    env_file:
+      - .env
 
 volumes:
   mongodb_data:
-
-

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cp .env.example .env
+echo ".env file created."
+
+echo "Running servers for setup..."
+docker-compose down
+./script/server
