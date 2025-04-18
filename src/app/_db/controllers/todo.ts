@@ -1,5 +1,5 @@
-import  connectDB  from '../connection';
-import  TodoModel  from '../models/Todo';
+import connectDB from '../connection';
+import TodoModel from '../models/Todo';
 
 const getTodos = async () => {
   await connectDB();
@@ -7,4 +7,4 @@ const getTodos = async () => {
   return todoItems;
 };
 
-export default getTodos
+export default getTodos;
