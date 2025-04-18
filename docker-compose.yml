@@ -31,7 +31,7 @@ services:
       - .:/app
     ports:
       - '3000:3000'
-    command: sh -c "npm install && npm run dev"
+    command: sh -c "npm install && npx pm2-runtime start npm --name nextjs -- run dev"
     depends_on:
       - mongo
     env_file:
