@@ -36,6 +36,7 @@ For whenever you want to spin up the dev environment again:
 ./script/server
 ```
 
+
 The following services are expected to run:
 
 - Next.js: http://localhost:3000
