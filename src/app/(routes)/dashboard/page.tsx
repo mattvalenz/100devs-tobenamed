@@ -1,4 +1,4 @@
-import Navbar from "@/app/Components/Navbar"
+import Navbar from '@/app/Components/Navbar';
 
 // This file is the main view for the /dashboard route (View layer).
 export default function Dashboard() {
