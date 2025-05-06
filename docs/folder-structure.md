@@ -18,11 +18,11 @@ my-nextjs-mvc/
 │   │   │   └── Button.tsx
 │   │   ├── layouts/
 │   │   │   └── DashboardLayout.tsx
-├── models/
-│   ├── db/
-│   │   └── Users.ts
-├── controllers/
-│   ├── auth.ts  // Controller: Shared actions (e.g., login).
+|   ├── _db/
+│   ├── controllers/
+│   │   └── todo.ts
+|   ├── models/
+│   |   └── Todo.ts  // Controller: Shared actions (e.g., login).
 ├── data/
 │   ├── users.json
 ├── public/

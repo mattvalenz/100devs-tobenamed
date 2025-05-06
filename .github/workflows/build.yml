@@ -11,20 +11,48 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true
+      MONGODB_URI: mongodb://localhost:27017
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'  
+      - name: Set up Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
 
-    - name: Install dependencies
-      run: npm install
+      - name: Run setup script
+        run: ./script/setup
 
-    - name: Build the project
-      run: npm run build
+      - name: Start the mongo container
+        run: |
+          docker-compose up -d mongo 
 
-   
+      - name: Wait for MongoDB to be healthy
+        run: |
+          for i in {1..30}; do
+            if docker inspect --format='{{json .State.Health.Status}}' mongodb | grep -q "healthy"; then
+              echo "MongoDB is healthy"
+              break
+            fi
+            echo "Waiting for MongoDB to be healthy..."
+            sleep 5
+          done
+          if ! docker inspect --format='{{json .State.Health.Status}}' mongodb | grep -q "healthy"; then
+            echo "MongoDB health check failed"
+            exit 1
+          fi
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+  
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Next.js app
+        run: npm run build 
