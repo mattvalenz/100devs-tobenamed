@@ -36,6 +36,18 @@ For whenever you want to spin up the dev environment again:
 ./script/server
 ```
 
+**Run Tests**
+Runs the linter and tests:
+```sh
+./script/test
+```
+
+To run tests constantly while listening to file changes:
+
+```sh
+npm run test
+```
+
 The following services are expected to run:
 
 - Next.js: http://localhost:3000
