@@ -1,4 +1,5 @@
 import Profile from '@/components/Profile';
+import Quest from '@/components/Quest';
 import getTodos from './_db/controllers/todo';
 
 export default async function Home() {
@@ -6,9 +7,23 @@ export default async function Home() {
   return (
     <>
       <h1>Hello world</h1>
-      {todos.map((todo) => (
+      {todos.map(todo => (
         <p key={todo.id}>{todo.todo}</p>
       ))}
+
+      <h2 className="text-2xl text-center">Quest component:</h2>
+
+      <div className="w-[600px] m-auto">
+        <Quest
+          questData={{
+            description: 'Add 3 people to your hitlist',
+            progress: 2,
+            goal: 3,
+            icon: '/linkedin.png',
+            reward: 10,
+          }}
+        />
+      </div>
 
       <h2 className="text-2xl text-center">Profile Page:</h2>
       <Profile
