@@ -1,5 +1,5 @@
 import Quest from '@/components/Quest';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 const dailyQuest = {
   description: 'Add 3 people to your histlist',
