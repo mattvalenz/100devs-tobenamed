@@ -22,11 +22,12 @@ export default function Quest({ className = '', questData }: QuestProps) {
         <div className="relative text-sm text-center bg-zinc-800 rounded-full my-4 overflow-hidden">
           <div
             id="progress-bar"
-            className="absolute t-0 l-0 h-full bg-teal-600 z-1"
+            className="absolute t-0 l-0 h-full bg-teal-600 z-1 animate-goal-progress w-0"
             style={{
-              width: `${Math.floor((progress / goal) * 100)}%`,
-            }}
+              '--goal-progress-width': `${Math.floor((progress / goal) * 100)}%`,
+            } as React.CSSProperties}
           />
+
           <p className="relative z-1">
             {progress}
             /
