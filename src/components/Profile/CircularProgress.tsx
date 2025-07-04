@@ -22,7 +22,7 @@ export default function CircularProgress({ progress, className = '' }: CircularP
           strokeDasharray={circumference}
           strokeDashoffset={circumference}
           strokeLinecap="round"
-          className="animate-progress"
+          className="animate-level-progress"
           style={
             {
               '--level-progress-final-offset': offset, // set global variable for animation

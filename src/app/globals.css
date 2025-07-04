@@ -29,7 +29,7 @@ body {
 }
 
 @layer utilities {
-  @keyframes progress {
+  @keyframes level-progress {
     to {
       stroke-dashoffset: var(--level-progress-final-offset);
     }
@@ -37,5 +37,8 @@ body {
 
   .animate-progress {
     animation: progress 0.6s ease 0.5s forwards;
+  .animate-level-progress {
+    animation: level-progress 0.6s ease 0.5s forwards;
+  }
   }
 }
