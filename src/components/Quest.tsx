@@ -13,13 +13,14 @@ interface QuestProps {
 
 export default function Quest({ className = '', questData }: QuestProps) {
   const { description, progress, goal } = questData;
+  const questCompletedClasses = progress === goal ? 'animate-quest-completed cursor-pointer' : '';
 
   return (
     <section className={className || 'flex items-center gap-4 py-5 px-10 rounded'}>
       <Image className="h-20 w-20" src="/linkedin.png" alt="" height={50} width={50} />
       <div className="w-full">
         <h3 className="font-bold">{description}</h3>
-        <div className="relative text-sm text-center bg-zinc-800 rounded-full my-4 overflow-hidden">
+        <div className={`relative text-sm text-center bg-zinc-800 rounded-full my-4 overflow-hidden ${questCompletedClasses}`}>
           <div
             id="progress-bar"
             className="absolute t-0 l-0 h-full bg-teal-600 z-1 animate-goal-progress w-0"
