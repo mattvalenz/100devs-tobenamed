@@ -33,7 +33,3 @@ export default function CircularProgress({ progress, className = '' }: CircularP
     </div>
   );
 }
-
-CircularProgress.defaultProps = {
-  className: '',
-};
